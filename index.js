@@ -17,6 +17,7 @@ app.post("/", async function(req, res) {
   res.json(resultado);
 });
 
+
 app.listen(3000, function(){
   console.log("o servidor está no pique da viola")
 });
