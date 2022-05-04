@@ -24,6 +24,12 @@ app.put("/:id", async function(req, res) {
   console.log(resultadoSave);
 });
 
+app.delete("/:id", async function(req, res) {
+ var resultado = usuario.destroy({ where: { id: req.params.id }});
+  console.log(resultado);
+  res.json(resultado)
+});
+
 
 app.listen(3000, function(){
   console.log("o servidor está no pique da viola")
