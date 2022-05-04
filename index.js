@@ -17,6 +17,13 @@ app.post("/", async function(req, res) {
   res.json(resultado);
 });
 
+app.put("/:id", async function(req, res) {
+  const id = await usuario.findByPk(req.params.id);
+  res.json(id.nome="Joao");
+  const resultadoSave = await id.save();
+  console.log(resultadoSave);
+});
+
 
 app.listen(3000, function(){
   console.log("o servidor está no pique da viola")
