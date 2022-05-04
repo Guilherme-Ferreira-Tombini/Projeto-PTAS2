@@ -30,6 +30,11 @@ app.delete("/:id", async function(req, res) {
   res.json(resultado)
 });
 
+app.get("/:id", async function(req, res) {
+ const id = await usuario.findByPk(req.params.id);
+ res.json(id)
+});
+
 
 app.listen(3000, function(){
   console.log("o servidor está no pique da viola")
