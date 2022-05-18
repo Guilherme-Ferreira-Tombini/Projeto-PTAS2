@@ -13,6 +13,11 @@ app.get("/usuarios", async function(req, res){
   res.json(resultado);
 });
 
+app.get("/usuarios/:id/empresas", async function(req, res){
+  const id = await usuario.findByPk(req.params.id, {include: 'empresa'});
+  res.json(id.empresa);
+});
+
 app.post("/usuarios", async function(req, res) {
   var resultado = await usuario.create(req.body);
   res.json(resultado);
@@ -63,6 +68,10 @@ app.get("/empresas/:id", async function(req, res) {
  res.json(id)
 });
 
+app.get("/empresas/:id/usuarios", async function(req, res){
+  const id = await empresa.findByPk(req.params.id, {include: 'usuarios'});
+  res.json(id.usuarios);
+});
 
 app.listen(3000, function(){
   console.log("o servidor está no pique da viola")
